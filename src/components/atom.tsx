@@ -86,7 +86,7 @@ export default async function  Atom({ slug }: { slug: string[] }) {
         <div className='flex flex-col gap-4 items-left justify-items-start sm:p-16 p-4 border float-left'>
           <div className='border'>
             <p>Total monthly payment</p>
-          <h2 className='font-semibold text-3xl justify-items-start'>Price: {atom?.price}</h2>
+          <h2 className='font-semibold text-3xl justify-items-start'>Price: {atom?.name}</h2>
             <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded justify-items-start'>Top up my cover</button>
           </div>
         </div>

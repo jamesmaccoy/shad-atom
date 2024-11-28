@@ -1,14 +1,17 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { ReactNode } from 'react'
 
 import { getAtoms } from '@/lib/atoms'
 import { cn } from '@/lib/utils'
 
 
+
 export default async function AtomsLayout({
-  params: {
-    slug?: string[] | undefined;
-  };
+  params,
+  children,
+}: {
+  params: Promise<{ slug?: string[] }>;
   children: ReactNode;
 }) {
   const { atoms, error } = await getAtoms()
@@ -16,7 +19,8 @@ export default async function AtomsLayout({
     notFound()
   }
 
-  const { slug } = params
+  const resolvedParams = await params
+  const slug = resolvedParams.slug
   const atomId = slug?.[0]
 console.log({atomId})
   return (
